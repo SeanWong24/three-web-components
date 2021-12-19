@@ -1,0 +1,13 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Three Web Components</title> <script type="module" src="./build/three.esm.js"></script> <script nomodule="" src="./build/three.js"></script> </head> <body> <three-renderer width="600" height="400"> <three-perspective-camera z="5"></three-perspective-camera> <three-scene> <three-mesh id="box-mesh"> <three-box-geometry></three-box-geometry> <three-mesh-basic-material color="#00f"></three-mesh-basic-material> </three-mesh> </three-scene> </three-renderer> <script>
+    function animate() {
+      requestAnimationFrame(animate);
+      const mesh = document.querySelector('#box-mesh');
+      if (mesh) {
+        const deltaDegree = .01;
+        mesh.rotationX = (mesh.rotationX || 0) + deltaDegree;
+        mesh.rotationY = (mesh.rotationY || 0) + deltaDegree;
+        mesh.rotationZ = (mesh.rotationZ || 0) + deltaDegree;
+      }
+    }
+    animate();
+  </script> </body></html>
